@@ -43,15 +43,6 @@ public class StatusBarControlPlugin implements FlutterPlugin, ActivityAware, Met
         channel.setMethodCallHandler(this);
     }
 
-    public static void registerWith(Registrar registrar) {
-        // For compatibility of apps not using the v2 Android embedding
-        Log.d("StatusBarControl", "StatusBarControl: Registered with Compatibility");
-        activity = registrar.activity();
-        final MethodChannel channel = new MethodChannel(registrar.messenger(), channelName);
-        StatusBarControlPlugin instance = new StatusBarControlPlugin();
-        channel.setMethodCallHandler(instance);
-    }
-
     @Override
     public void onDetachedFromEngine(@NonNull FlutterPluginBinding binding) {
         // The plugin is no longer attached to a Flutter experience
